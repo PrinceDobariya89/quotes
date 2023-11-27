@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quotes/constant/routes.dart';
+import 'package:quotes/provider/quote_provider.dart';
 import 'package:quotes/provider/theme_provider.dart';
 import 'package:quotes/screens/edit_screen.dart';
 import 'package:quotes/screens/home_screen.dart';
+import 'package:quotes/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,10 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(
             create: (context) => ThemeProvider(),
-          )
+          ),
+          ChangeNotifierProvider(
+            create: (context) => QuoteProvider(),
+          ),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -27,8 +32,9 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          initialRoute: homeScreen,
+          initialRoute: splashScreen,
           routes: {
+            splashScreen: (context) => const SplashScreen(),
             homeScreen: (context) => const HomeScreen(),
             editScreen: (context) => const EditScreen(),
           },

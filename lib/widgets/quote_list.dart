@@ -11,7 +11,8 @@ class QuoteList extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       itemBuilder: (context, index) {
       return Card(
-        margin: const EdgeInsets.only(bottom: 20),
+        elevation: 5,
+        margin: const EdgeInsets.only(bottom: 10),
         child: InkWell(
           onTap: () {
             Navigator.pushNamed(context, editScreen,arguments: index);
