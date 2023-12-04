@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ThemeProvider extends ChangeNotifier{
-
+class ThemeProvider extends ChangeNotifier {
   bool isList = true;
+  ThemeMode themeMode = ThemeMode.light;
 
-  void chageView(){
+  void changeView() {
     isList = !isList;
     notifyListeners();
   }
 
+  void chanegTheme() {
+    themeMode = themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
 }
